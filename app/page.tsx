@@ -90,7 +90,15 @@ export default function GeneratePage() {
         )}
       </div>
 
-      {result && <BctResult doc={result} />}
+            {result ? (
+        <BctResult doc={result} onChange={setResult} />
+      ) : (
+        status !== "loading" && (
+          <div className="rounded-lg border border-dashed p-8 text-center text-muted-foreground">
+            Scenario belum tersedia. Unggah ketiga file lalu tekan Generate.
+          </div>
+        )
+      )}
     </main>
   );
 }
